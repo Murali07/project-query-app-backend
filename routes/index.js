@@ -14,24 +14,24 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post("/create-ticket", validateToken, adminGaurd, async(req, res) => {
-  try{
-    let ticket = await queryModel.create(req.body)
-    res.send({
-      statusCode: 200,
-      message: "Ticket Created Successfully",
-      ticket
-    })
+// router.post("/create-ticket", validateToken, adminGaurd, async(req, res) => {
+//   try{
+//     let ticket = await queryModel.create(req.body)
+//     res.send({
+//       statusCode: 200,
+//       message: "Ticket Created Successfully",
+//       ticket
+//     })
 
-  }
-  catch(error){
-    res.send({
-      starusCode: 500,
-      message: "Internal Server Error",
-      error
-    })
-  }
+//   }
+//   catch(error){
+//     res.send({
+//       starusCode: 500,
+//       message: "Internal Server Error",
+//       error
+//     })
+//   }
   
-})
+// })
 
 module.exports = router;
