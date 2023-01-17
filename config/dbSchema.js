@@ -21,13 +21,17 @@ const querySchema = new mongoose.Schema({
     category: {type: String, required: true},
     language: {type: String, required: true},
     queryTitle: {type: String, required: true},
-    queryDescription: {type: String, required: true},
-    availableTime: {type: Date, required: true},
+    queryDescription: {type: String, required: true},   
     createAt: {type: Date, default: Date.now()}
 })
+
+const CategorySchema = new mongoose.Schema({
+    category: {type: String, required: true}    
+  })
 
 
 let userModel = mongoose.model("users", userSchema);
 let queryModel = mongoose.model("queries", querySchema);
+let categoryModel = mongoose.model("category", CategorySchema);
 
-module.exports = {mongoose, userModel, queryModel};
+module.exports = {mongoose, userModel, queryModel, categoryModel};
